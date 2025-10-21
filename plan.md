@@ -20,12 +20,16 @@ This document outlines a 6-phase agile development plan for the AI assistant pro
 
 ## Phase 2: MCQ Assessment Module (Sprint 2)
 
-*   **Goal:** Enable the assistant to assess user knowledge through multiple-choice questions.
-*   **Features:**
-    *   [ ] Design and implement a data structure for storing MCQs (question, options, correct answer, topic).
-    *   [ ] Build a question bank with a variety of MCQs covering key Data & AI concepts.
-    *   [ ] Develop the logic to present questions to the user and evaluate their answers.
-    *   [ ] Provide immediate feedback to the user after each question.
+*   **Status:** Complete.
+
+*   **Completed Features:**
+    *   [x] **MCQ Generation:** `mcq_assessment` function in `mcq.py` generates MCQs on-the-fly using a language model.
+    *   [x] **MCQ Data Structure:** A JSON structure (`question`, `options`, `correct_answer`, `explanation`) is used for MCQs.
+    *   [x] **Quiz Logic in `main.py`:** Implemented the main quiz loop, question presentation, answer evaluation, score tracking, and adaptive difficulty.
+    *   [x] **Feedback Mechanism:** Provides immediate feedback (correct/incorrect and explanation) after each question.
+    *   [x] **Refine Adaptive Difficulty:** Further fine-tuned the adaptive difficulty logic for smoother progression.
+    *   [x] **Error Handling/Robustness:** Improved error handling for LLM responses and user input, including graceful exit for consecutive MCQ generation failures.
+
 
 ## Phase 3: Performance Tracking & Analysis (Sprint 3)
 

@@ -50,6 +50,7 @@ def main():
                 score = 0
                 correct_answers = 0
                 wrong_answers = 0
+                failed_mcq_generations = 0 # New counter for failed MCQ generations
                 difficulty_map = {"easy": 1, "medium": 2, "hard": 3}
                 current_difficulty = "easy"
                 topics = ["data science", "machine learning", "deep learning", "statistics", "data engineering", "AI ethics"]
@@ -58,27 +59,51 @@ def main():
                     difficulty = "easy" if i < rounds // 3 else "medium" if i < 2 * rounds // 3 else "hard"
                     try:
                         mcq = mcq_assessment(topic=topic, difficulty=difficulty, chat_fn=chat)
-                    except Exception as e:
+                        failed_mcq_generations = 0 # Reset counter on successful generation
+                    except ValueError as e: # Catch ValueError specifically
                         print(f"Could not generate MCQ for {topic}: {e}")
+                        failed_mcq_generations += 1
+                        if failed_mcq_generations >= 3:
+                            print("\n❌ Too many consecutive failures to generate MCQs. Ending quiz.\n")
+                            break # Exit the quiz loop
                         continue
+                    except Exception as e: # Catch other unexpected exceptions
+                        print(f"An unexpected error occurred during MCQ generation for {topic}: {e}")
+                        failed_mcq_generations += 1
+                        if failed_mcq_generations >= 3:
+                            print("\n❌ Too many consecutive failures to generate MCQs. Ending quiz.\n")
+                            break # Exit the quiz loop
+                        continue
+
                     print(f"\nQ{i+1} ({difficulty.title()}): {mcq['question']}")
                     j=0
                     for opt in mcq['options']:
                         j+= 1
                         print(f"{j+1}", opt)
-                    user_answer = input("Your answer (1/2/3/4): ").strip().upper()
+                    user_answer = input("Your answer (1/2/3/4): ").strip()
+                    if not user_answer.isdigit() or not (1 <= int(user_answer) <= 4):
+                        print("Invalid input. Please enter a number between 1 and 4.")
+                        wrong_answers += 1 # Treat invalid input as a wrong answer for difficulty adjustment
+                        if wrong_answers >= 3: # Adjust after 3 wrong answers
+                            current_difficulty = "easy" if current_difficulty == "medium" else "medium"
+                            wrong_answers = 0
+                            print(f"\n⬇️ You seem to be struggling — difficulty lowered to {current_difficulty.upper()}.\n")
+                        continue # Skip to next question
+
                     if user_answer == mcq["correct_answer"]:
                         print("Correct!")
                         score += difficulty_map[difficulty] * 10
                         correct_answers += 1
-                        wrong_answers = 0
-                        if correct_answers % 10 == 0:
+                        wrong_answers = 0 # Reset wrong answers on correct
+                        if correct_answers >= 3: # Adjust after 3 correct answers
                             current_difficulty = "medium" if current_difficulty == "easy" else "hard"
+                            correct_answers = 0 # Reset correct answers on difficulty increase
                             print(f"\n🔥 Great job! Difficulty increased to {current_difficulty.upper()}!\n")
                     else:
                         print(f"Wrong! The correct answer was {mcq['correct_answer']}. Explanation: {mcq['explanation']}")
                         wrong_answers += 1
-                        if wrong_answers == 5:
+                        correct_answers = 0 # Reset correct answers on wrong
+                        if wrong_answers >= 3: # Adjust after 3 wrong answers
                             current_difficulty = "easy" if current_difficulty == "medium" else "medium"
                             wrong_answers = 0
                             print(f"\n⬇️ You seem to be struggling — difficulty lowered to {current_difficulty.upper()}.\n")
