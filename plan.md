@@ -1,6 +1,6 @@
 # Project Plan: AI Career Assistant
 
-This document outlines a 5-phase agile development plan for the AI assistant project.
+This document outlines a 6-phase agile development plan for the AI assistant project.
 
 ## Phase 1: Foundation & Core Conversation (Sprint 1)
 
@@ -52,3 +52,11 @@ This document outlines a 5-phase agile development plan for the AI assistant pro
     *   [ ] Integrate the live data into the recommendation engine to ensure suggestions are current.
     *   [ ] Conduct user acceptance testing (UAT) to gather feedback.
     *   [ ] Refine the overall conversation flow, UI/UX, and prepare for a beta release.
+
+## Phase 6: Job Search & Live Event Integration (Sprint 6)
+ 
+*   **Goal:** Help users find relevant job openings and stay informed about professional networking events.
+*   **Features:**
+    *   [ ] **Job Search Integration:** Implement a module to search for jobs on platforms like LinkedIn, Indeed, etc., based on the user's profile and career goals.
+    *   [ ] **Event Notifications:** Integrate with APIs or scrape websites (e.g., Meetup, Eventbrite) to find and inform users about relevant career fairs, workshops, and "professional salons."
+    *   [ ] **Resume/CV Helper:** Add a feature to provide tips and suggestions for improving the user's resume or CV.
