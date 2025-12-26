@@ -1,0 +1,37 @@
+[
+    {
+        "title": "Introduction to Machine Learning",
+        "url": "https://example.com/ml-intro",
+        "description": "A beginner-friendly course covering the basics of machine learning.",
+        "topics_covered": ["machine learning", "data science"],
+        "difficulty_level": "easy"
+    },
+    {
+        "title": "Deep Learning Specialization",
+        "url": "https://example.com/dl-specialization",
+        "description": "Comprehensive specialization on deep learning concepts and applications.",
+        "topics_covered": ["deep learning", "machine learning", "AI ethics"],
+        "difficulty_level": "hard"
+    },
+    {
+        "title": "Statistics for Data Science",
+        "url": "https://example.com/stats-ds",
+        "description": "Learn essential statistical concepts for data analysis.",
+        "topics_covered": ["statistics", "data science"],
+        "difficulty_level": "medium"
+    },
+    {
+        "title": "Data Engineering Fundamentals",
+        "url": "https://example.com/data-eng-fundamentals",
+        "description": "Understand the principles of building and maintaining data pipelines.",
+        "topics_covered": ["data engineering", "data science"],
+        "difficulty_level": "medium"
+    },
+    {
+        "title": "AI Ethics: Principles and Practice",
+        "url": "https://example.com/ai-ethics",
+        "description": "Explore the ethical considerations and societal impact of artificial intelligence.",
+        "topics_covered": ["AI ethics"],
+        "difficulty_level": "medium"
+    }
+]

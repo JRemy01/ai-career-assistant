@@ -30,5 +30,13 @@
   {
     "user": "i want to take a quiz",
     "bot": "Full MCQ quiz completed. Score: 0"
+  },
+  {
+    "user": "clear",
+    "bot": " Here's a short summary of your previous quiz results and a new quiz for practice:\n\n1. You scored 5 out of 5 on the previous Data & AI career quiz, which is excellent! Let's continue learning together.\n2. New Quiz:\n\n   Q1. Which programming language is primarily used in Data Engineering?\n      A) Python\n      B) R\n      C) Java\n      D) Scala\n\n   Q2. What does TensorFlow specialize in?\n      A) Deep Learning\n      B) Natural Language Processing\n      C) Computer Vision\n      D) Reinforcement Learning\n\n   Q3. Which of the following is an open-source, distributed computing system for big data processing?\n      A) Hadoop\n      B) Spark\n      C) PyTorch\n      D) TensorFlow\n\n   Answers:\n   Q1 - D (Scala is commonly used in Data Engineering due to its concurrency support and integration with Apache Spark.)\n   Q2 - A (TensorFlow is primarily used for deep learning, which involves training artificial neural networks.)\n   Q3 - B (Apache Spark and Hadoop are both popular tools for big data processing.)"
+  },
+  {
+    "user": "/clear",
+    "bot": " Quiz Answers:\n1. D - Scala (Scala is commonly used in Data Engineering due to its concurrency support and integration with Apache Spark.)\n2. A - Deep Learning (TensorFlow is primarily used for deep learning, which involves training artificial neural networks.)\n3. B - Apache Spark (Apache Spark and Hadoop are both popular tools for big data processing.)\n\nGreat job on the quiz! Let's review the answers together:\n\n1. Scala is a programming language primarily used in Data Engineering because of its concurrency support, strong static typing, and integration with Apache Spark.\n2. TensorFlow specializes in Deep Learning which involves training artificial neural networks to solve complex problems like image recognition, speech recognition, natural language processing, and more.\n3. Apache Spark is an open-source distributed computing system for big data processing that allows you to quickly write applications that easily run on Hadoop clusters or standalone modes. It can process large datasets faster than traditional batch processing systems because it supports in-memory computation and efficient data shuffling."
   }
 ]

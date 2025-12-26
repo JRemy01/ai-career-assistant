@@ -1,0 +1,79 @@
+{
+  "default_user": {
+    "quiz_history": [
+      {
+        "user_id": "default_user",
+        "timestamp": "2025-11-25T10:47:10.993Z",
+        "type": "web_quiz",
+        "score": 2,
+        "results": [
+          {
+            "topic": "data engineering",
+            "difficulty": "easy",
+            "correct": true
+          },
+          {
+            "topic": "data engineering",
+            "difficulty": "easy",
+            "correct": false
+          },
+          {
+            "topic": "statistics",
+            "difficulty": "easy",
+            "correct": false
+          },
+          {
+            "topic": "statistics",
+            "difficulty": "easy",
+            "correct": false
+          },
+          {
+            "topic": "AI ethics",
+            "difficulty": "easy",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "user_id": "default_user",
+        "timestamp": "2025-11-25T10:48:49.671Z",
+        "type": "web_quiz",
+        "score": 1,
+        "results": [
+          {
+            "topic": "AI ethics",
+            "difficulty": "easy",
+            "correct": false
+          },
+          {
+            "topic": "AI ethics",
+            "difficulty": "easy",
+            "correct": false
+          },
+          {
+            "topic": "AI ethics",
+            "difficulty": "easy",
+            "correct": false
+          },
+          {
+            "topic": "AI ethics",
+            "difficulty": "easy",
+            "correct": false
+          },
+          {
+            "topic": "AI ethics",
+            "difficulty": "easy",
+            "correct": true
+          }
+        ]
+      }
+    ],
+    "chat_sessions": {
+      "session_1764067765": {
+        "id": "session_1764067765",
+        "title": "New Chat",
+        "history": []
+      }
+    }
+  }
+}

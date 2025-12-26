@@ -19,10 +19,10 @@ def save_memory(messages):
         json.dump(messages, f, indent=2)
     
 
-def add_consversation(user_input, bot_response):
-    conservations = load_memory()
-    conservations.append({"user":user_input, "bot":bot_response})
-    save_memory(conservations)
+def add_conversation(user_input, bot_response):
+    conversations = load_memory()
+    conversations.append({"user":user_input, "bot":bot_response})
+    save_memory(conversations)
     # Load existing memory
     # Append new conversation
     # Save updated

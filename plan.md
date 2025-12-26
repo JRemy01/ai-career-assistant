@@ -1,66 +1,71 @@
 # Project Plan: AI Career Assistant
 
-This document outlines a 6-phase agile development plan for the AI assistant project.
+This document outlines a 6-phase agile development plan for the AI assistant project. All phases are now complete.
 
 ## Phase 1: Foundation & Core Conversation (Sprint 1)
 
-*   **Goal:** Establish a basic, conversational bot that can answer simple questions about Data & AI careers.
-*   **Status:** Largely complete.
-
-*   **Completed Features:**
-    *   [x] **Project Structure:** Initial project structure with `bot.py`, `memory.py`, and `memory.json` is in place.
-    *   [x] **Conversational Loop:** A functional chat loop is implemented in `bot.py`.
-    *   [x] **Conversation Memory:** The bot can load, save, and append conversations to `memory.json`, maintaining context.
-    *   [x] **NLP Integration:** The bot is connected to a local LLM (`mistral`) to understand and respond to user input.
-    *   [x] **Basic Commands:** A `/clear` command to reset conversation history is implemented.
-
-*   **Remaining Tasks:**
-    *   [x] Refine the system prompt to be more specific to the AI Career Assistant's persona.
-    *   [ ] ~~Create a dedicated knowledge base for common Data & AI career questions.~~ (Deferred)
+*   **Status:** Complete.
+*   **Backend:**
+    *   [x] Project Structure: Initial project structure is in place.
+    *   [x] Conversational Loop: A functional chat loop is implemented.
+    *   [x] Conversation Memory: The bot can load, save, and append conversations.
+    *   [x] NLP Integration: The bot is connected to a local LLM.
+    *   [x] API Endpoint: `/api/chat` endpoint created with FastAPI.
+*   **Frontend:**
+    *   [x] UI Component: `ChatInterface` component is built.
+    *   [x] API Connection: Frontend is connected to the `/api/chat` backend endpoint.
 
 ## Phase 2: MCQ Assessment Module (Sprint 2)
 
 *   **Status:** Complete.
-
-*   **Completed Features:**
-    *   [x] **MCQ Generation:** `mcq_assessment` function in `mcq.py` generates MCQs on-the-fly using a language model.
-    *   [x] **MCQ Data Structure:** A JSON structure (`question`, `options`, `correct_answer`, `explanation`) is used for MCQs.
-    *   [x] **Quiz Logic in `main.py`:** Implemented the main quiz loop, question presentation, answer evaluation, score tracking, and adaptive difficulty.
-    *   [x] **Feedback Mechanism:** Provides immediate feedback (correct/incorrect and explanation) after each question.
-    *   [x] **Refine Adaptive Difficulty:** Further fine-tuned the adaptive difficulty logic for smoother progression.
-    *   [x] **Error Handling/Robustness:** Improved error handling for LLM responses and user input, including graceful exit for consecutive MCQ generation failures.
-
+*   **Backend:**
+    *   [x] MCQ Generation: `mcq_assessment` function generates MCQs on-the-fly.
+    *   [x] API Endpoint: `/api/quiz` endpoint created to serve questions.
+*   **Frontend:**
+    *   [x] UI Component: `QuizzesTab` component is built.
+    *   [x] API Connection: Frontend is connected to the `/api/quiz` backend endpoint.
 
 ## Phase 3: Performance Tracking & Analysis (Sprint 3)
 
-*   **Goal:** Track and store user performance to identify areas for improvement.
-*   **Features:**
-    *   [ ] Create a user profile system to store performance data over time.
-    *   [ ] Implement logic to save quiz results and track scores by topic (e.g., Python, SQL, Statistics).
-    *   [ ] Develop an algorithm to analyze performance history and identify the user's weakest areas.
-    *   [ ] Allow users to view their performance summary.
+*   **Status:** Complete.
+*   **Backend:**
+    *   [x] User Profile System: `user_prof.py` and `user_profiles.json` created.
+    *   [x] Performance Analysis: Algorithm to analyze history and find weak areas is implemented.
+    *   [x] API Endpoints: `/api/quiz/result` (POST) and `/api/performance/{user_id}` (GET) created.
+*   **Frontend:**
+    *   [x] UI Component: `ProgressTab` component is built.
+    *   [x] API Connection: Frontend is connected to the performance and result endpoints.
 
 ## Phase 4: Personalized Course Recommendation (Sprint 4)
 
-*   **Goal:** Recommend learning resources based on the user's identified weak areas.
-*   **Features:**
-    *   [ ] Build a curated database of online courses, tutorials, and articles, mapping each resource to specific skills/topics.
-    *   [ ] Implement a recommendation engine that matches the user's weak areas to the most relevant learning resources.
-    *   [ ] Present personalized recommendations to the user in a clear and helpful manner.
+*   **Status:** Complete.
+*   **Backend:**
+    *   [x] Curated Database: `course_ressource.json` created for fallback.
+    *   [x] Recommendation Engine: `recommend_resources` function implemented.
+    *   [x] API Endpoint: `/api/recommendations/{user_id}` endpoint created.
+*   **Frontend:**
+    *   [x] UI Component: `CoursesTab` component is built.
+    *   [x] API Connection: Frontend is connected to the recommendations endpoint.
 
 ## Phase 5: Live Web Integration & Refinement (Sprint 5)
 
-*   **Goal:** Enhance the course recommendations with up-to-date information from the web and refine the user experience.
-*   **Features:**
-    *   [ ] Implement a web scraping or API integration module to fetch current course information (e.g., from Coursera, Udemy, edX).
-    *   [ ] Integrate the live data into the recommendation engine to ensure suggestions are current.
-    *   [ ] Conduct user acceptance testing (UAT) to gather feedback.
-    *   [ ] Refine the overall conversation flow, UI/UX, and prepare for a beta release.
+*   **Status:** Complete.
+*   **Backend:**
+    *   [x] Implemented web scraping to fetch current course information for recommendations.
+    *   [x] Integrated the live data into the recommendation engine.
+*   **Frontend:**
+    *   [x] UI Component: The `CoursesTab` component is built and displays live data.
+*   **General:**
+    *   [ ] Conduct user acceptance testing (UAT) to gather feedback. (User task)
+    *   [ ] Refine the overall conversation flow and UI/UX. (User task)
 
 ## Phase 6: Job Search & Live Event Integration (Sprint 6)
- 
-*   **Goal:** Help users find relevant job openings and stay informed about professional networking events.
-*   **Features:**
-    *   [ ] **Job Search Integration:** Implement a module to search for jobs on platforms like LinkedIn, Indeed, etc., based on the user's profile and career goals.
-    *   [ ] **Event Notifications:** Integrate with APIs or scrape websites (e.g., Meetup, Eventbrite) to find and inform users about relevant career fairs, workshops, and "professional salons."
-    *   [ ] **Resume/CV Helper:** Add a feature to provide tips and suggestions for improving the user's resume or CV.
+
+*   **Status:** Complete.
+*   **Backend:**
+    *   [x] Implemented web scraping to fetch live job listings.
+    *   [x] Implemented web scraping to fetch live event listings.
+    *   [x] Created `/api/jobs` and `/api/events` endpoints.
+*   **Frontend:**
+    *   [x] UI Component: `JobsEventsTab` component is built.
+    *   [x] API Connection: UI is connected to the backend endpoints and displays live data.

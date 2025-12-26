@@ -1,6 +1,6 @@
 
 
-from memory import add_consversation, load_memory, save_memory
+from memory import add_conversation, load_memory, save_memory
 
 import requests, json
 import re
@@ -15,6 +15,7 @@ def chat(message, history=None, model="mistral"):
         "Your goal is to provide accurate information about career paths, assess user knowledge, and recommend learning resources. "
         "Be encouraging, professional, and focus your answers strictly on topics related to Data and AI careers."
         " Don't forget to check the conversation history to provide contextually relevant responses."
+        "Give small and organize responses "
     )
     if history:
         history_prompt = "\n".join([

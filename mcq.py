@@ -11,19 +11,22 @@ def mcq_assessment(topic = "machine learning", difficulty = "easy", chat_fn=None
         difficulty (str): The difficulty level of the questions ("easy", "medium", "hard").
 
     Returns:
-        dict: A dictionary containing the question, options, correct answer, and explanation.
+        dict: A dictionary containing the question, options, correct answer, explanation,
+              and the topic and difficulty used to generate it.
     """
     prompt = (
         f"Generate a multiple-choice question on the topic of '{topic}' at a '{difficulty}' difficulty level. "
-        "Provide four options (1, 2, 3, 4), indicate the correct answer, and include a brief explanation. "
-        "Reply ONLY in valid JSON with keys: question, options, correct_answer, explanation. Do not include any text outside the JSON object."
+        "Provide four options. Indicate the correct answer as a single number (1, 2, 3, or 4) corresponding to the option's position. "
+        "Include a brief explanation. Reply ONLY in valid JSON with keys: question, options, correct_answer, explanation. Do not include any text outside the JSON object."
     )
     if chat_fn is None:
         raise ValueError("A chat function must be provided to mcq_assessment.")
     model_response = chat_fn(prompt, model="mistral")
     try :
-        mcq_assessment = json.loads(model_response)
-        return mcq_assessment
+        mcq_data = json.loads(model_response)
+        mcq_data["topic"] = topic # Add topic to the returned data
+        mcq_data["difficulty"] = difficulty # Add difficulty to the returned data
+        return mcq_data
     except json.JSONDecodeError:
         raise ValueError("Failed to parse MCQ data from response.")
    
@@ -44,5 +47,4 @@ def mcq_score(round = 20):
     wrong_answers = 0
     topics = ["data science", "machine learning", "deep learning", "statistics", "data engineering", "AI ethics"]
 
-    # You must pass chat_fn when calling mcq_assessment from main.py
-    raise NotImplementedError("Call mcq_score from main.py with chat_fn argument.")
+
